@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
-import { FokusButton } from "../components/FokusButton"
-import { ActionButton } from "../components/ActionButton"
+import { Image, StyleSheet, Text, View } from "react-native";
+import { ActionButton } from "../components/ActionButton";
+import { FokusButton } from "../components/FokusButton";
+import Timer from "../components/Timer";
 
 const pomodoro = [
   {
@@ -44,9 +45,9 @@ export default function Index() {
           )}
         </View>
 
-        <Text style={styles.timer}>
-          { new Date(timeType.initialValue * 1000).toLocaleTimeString("pt-br", {minute: "2-digit", second: "2-digit"}) }
-        </Text>
+          <Timer totalSeconds={timeType.initialValue}/>
+        
+        
         <FokusButton />
      </View>
 
@@ -96,12 +97,7 @@ const styles = StyleSheet.create(
       color: '#FFF',
       padding: 8,
     },
-    timer: {
-      fontSize: 54,
-      color: '#FFF',
-      fontWeight: 'bold',
-      textAlign: "center",
-    },
+    
     button: {
       backgroundColor: '#B872FF',
       borderRadius: 32,
